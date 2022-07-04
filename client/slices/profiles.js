@@ -1,18 +1,21 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { getFruits } from '../apis/api'
+import { fetchProfiles } from '../apis/profiles'
 
-export const fetchFruits = createAsyncThunk('fruits/fetchFruits', async () => {
-  return await getFruits()
-})
+export const getAllProfiles = createAsyncThunk(
+  'fruits/getAllProfiles',
+  async () => {
+    return await fetchProfiles()
+  }
+)
 
-const slice = createSlice({
-  name: 'fruits',
+const profiles = createSlice({
+  name: 'profiles',
   initialState: [],
   reducers: {},
   extraReducers: {
-    [fetchFruits.fulfilled]: (state, { payload }) => payload,
+    [getAllProfiles.fulfilled]: (state, { payload }) => payload,
   },
 })
 
-export const selectFruits = (state) => state.fruits
-export default slice.reducer
+export const allProfiles = (state) => state.profiles
+export default profiles.reducer

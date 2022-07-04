@@ -1,9 +1,9 @@
 exports.up = function (knex) {
-  return knex.schema.createTable('profiles', table => {
+  return knex.schema.createTable('profiles', (table) => {
     table.increments('id')
     table.string('username')
     table.string('password')
-    
+    table.string('email')
   })
 }
 

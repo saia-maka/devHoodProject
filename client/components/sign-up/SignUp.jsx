@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useReducer } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 
 // data imports:
 // import profilesData from '../../../data/profiles'
 
 // function imports:
-import { fetchProfiles, createProfile } from '../../apis/api'
+import { fetchProfiles, createProfile } from '../../apis/profiles'
+import { activeUser } from '../../slices/activeUser'
 
 // component imports:
 import SignUpCard from './SignUpCard'
@@ -24,10 +26,11 @@ const initialState = {
 }
 
 function reducer(state, action) {
-  switch(action.type) {
+  switch (action.type) {
     case 'USER_INPUT':
       return {
-        ...state, userInput: action.payload
+        ...state,
+        userInput: action.payload,
       }
     case 'USER_UNAVAILABLE':
       return {
@@ -42,81 +45,68 @@ function reducer(state, action) {
     case 'USER_INVALID':
       return {
         ...state,
-        userInvalidFormat: action.payload
+        userInvalidFormat: action.payload,
       }
     case 'USER_VALID':
       return {
         ...state,
-        userInvalidFormat: action.payload
+        userInvalidFormat: action.payload,
       }
     case 'EMAIL_INPUT':
       return {
-        ...state, emailInput: action.payload
+        ...state,
+        emailInput: action.payload,
       }
-      case 'EMAIL_UNAVAILABLE':
-        return {
-          ...state,
-          emailUnavailable: action.payload,
-        }
-      case 'EMAIL_AVAILABLE':
-        return {
-          ...state,
-          emailUnavailable: action.payload,
-        }
-      case 'EMAIL_INVALID':
-        return {
-          ...state,
-          emailInvalidFormat: action.payload
-        }
-      case 'EMAIL_VALID':
-        return {
-          ...state,
-          emailInvalidFormat: action.payload
-        }
-      case 'PASS_INPUT':
-        return {
-          ...state,
-          passInput: action.payload
-        }
-      case 'PASS_INVALID':
-        return {
-          ...state,
-          passInvalidFormat: action.payload
-        }
-      case 'PASS_VALID':
-        return {
-          ...state,
-          passInvalidFormat: action.payload
-        }
-      default:
-        return state
+    case 'EMAIL_UNAVAILABLE':
+      return {
+        ...state,
+        emailUnavailable: action.payload,
+      }
+    case 'EMAIL_AVAILABLE':
+      return {
+        ...state,
+        emailUnavailable: action.payload,
+      }
+    case 'EMAIL_INVALID':
+      return {
+        ...state,
+        emailInvalidFormat: action.payload,
+      }
+    case 'EMAIL_VALID':
+      return {
+        ...state,
+        emailInvalidFormat: action.payload,
+      }
+    case 'PASS_INPUT':
+      return {
+        ...state,
+        passInput: action.payload,
+      }
+    case 'PASS_INVALID':
+      return {
+        ...state,
+        passInvalidFormat: action.payload,
+      }
+    case 'PASS_VALID':
+      return {
+        ...state,
+        passInvalidFormat: action.payload,
+      }
+    default:
+      return state
   }
 }
 
 function SignUp() {
+  const dispatcher = useDispatch()
   const navigate = useNavigate()
   const [state, dispatch] = useReducer(reducer, initialState)
   const [profiles, setProfiles] = useState([])
-
-  // const [userInput, setUserInput] = useState('')
-  // const [userUnavailable, setUserUnavailable] = useState(null)
-  // const [userInvalidFormat, setUserInvalidFormat] = useState(null)
-
-  // const [emailInput, setEmailInput] = useState('')
-  // const [emailUnavailable, setEmailUnavailable] = useState(null)
-  // const [emailInvalidFormat, setEmailInvalidFormat] = useState(false)
-
-  // const [passInput, setPassInput] = useState('')
-  // const [passInvalidFormat, setPassInvalidFormat] = useState(null)
 
   useEffect(() => {
     fetchProfiles()
       .then((res) => {
         setProfiles(res)
-        // dispatch({
-        //   type: 'SET_PROFILES',
-        //   payload: res,
-        // })
       })
       .catch((err) => {
         console.error(err.message)
@@ -124,49 +114,40 @@ function SignUp() {
   }, [])
 
   function changeHandler(e) {
-    // setUserInput(e.target.value)
     dispatch({
       type: 'USER_INPUT',
-      payload: e.target.value
+      payload: e.target.value,
     })
   }
 
   function usernameHandler() {
-    // console.log(state.userInput, ' this is state.userInput in username handler')
-    // console.log(profiles, ' this is profiles in username handler')
-    const userExists = profiles.find((profile) => profile.username == state.userInput)
+    const userExists = profiles.find(
+      (profile) => profile.username == state.userInput
+    )
     const format = /^\w{4,12}$/i
     if (userExists) {
-      // setUserUnavailable(true)
       dispatch({
         type: 'USER_UNAVAILABLE',
-        payload: true
+        payload: true,
       })
-      // console.log('user is unavailable', state)
     }
     if (!userExists) {
-      // setUserUnavailable(false)
       dispatch({
         type: 'USER_AVAILABLE',
-        payload: false
+        payload: false,
       })
-      // console.log('user is available', state)
     }
     if (!state.userInput.match(format)) {
-      // setUserInvalidFormat(true)
       dispatch({
         type: 'USER_INVALID',
-        payload: true
+        payload: true,
       })
-      // console.log('bad format ', state)
     }
     if (state.userInput.match(format)) {
-      // setUserInvalidFormat(false)
       dispatch({
         type: 'USER_VALID',
-        payload: false
+        payload: false,
       })
-      // console.log('good format ', state)
     }
   }
 
@@ -184,42 +165,41 @@ function SignUp() {
   )
 
   function changeEmailHandler(e) {
-    // setEmailInput(e.target.value)
     dispatch({
       type: 'EMAIL_INPUT',
-      payload: e.target.value
+      payload: e.target.value,
     })
   }
 
   function emailHandler() {
-    const emailExists = profiles.find((profile) => profile.email == state.emailInput)
+    const emailExists = profiles.find(
+      (profile) => profile.email == state.emailInput
+    )
     const format = /^\w*[@][a-z|0-9]*[.][a-z]{1,}[a-z]$/i
+    const format2 = /^\w*[@][a-z|0-9]*[.][a-z]{1,}[.][a-z]{1,}[a-z]$/i
+
     if (emailExists) {
-      // setEmailUnavailable(true)
       dispatch({
         type: 'EMAIL_UNAVAILABLE',
-        payload: true
+        payload: true,
       })
     }
     if (!emailExists) {
-      // setEmailUnavailable(false)
       dispatch({
         type: 'EMAIL_AVAILABLE',
-        payload: false
+        payload: false,
       })
     }
     if (!state.emailInput.match(format)) {
-      // setEmailInvalidFormat(true)
       dispatch({
         type: 'EMAIL_INVALID',
-        payload: true
+        payload: true,
       })
     }
-    if (state.emailInput.match(format)) {
-      // setEmailInvalidFormat(false)
+    if (state.emailInput.match(format) || state.emailInput.match(format2)) {
       dispatch({
         type: 'EMAIL_VALID',
-        payload: false
+        payload: false,
       })
     }
   }
@@ -236,27 +216,24 @@ function SignUp() {
   )
 
   function changePassHandler(e) {
-    // setPassInput(e.target.value)
     dispatch({
       type: 'PASS_INPUT',
-      payload: e.target.value
+      payload: e.target.value,
     })
   }
 
   function passHandler() {
     const format = /^\w{6,16}$/i
     if (!state.passInput.match(format)) {
-      // setPassInvalidFormat(true)
       dispatch({
         type: 'PASS_INVALID',
-        payload: true
+        payload: true,
       })
     }
     if (state.passInput.match(format)) {
-      // setPassInvalidFormat(false)
       dispatch({
         type: 'PASS_VALID',
-        payload: false
+        payload: false,
       })
     }
   }
@@ -269,23 +246,6 @@ function SignUp() {
     </>
   )
 
-  // function creationHandler(e) {
-  //   e.preventDefault()
-  //   const profile = {
-  //     username: userInput,
-  //     email: emailInput,
-  //     password: passInput
-  //   }
-  //     createProfile(profile)
-  //     // .then((res) => {
-  //     //   console.log('front ', res)
-  //     //   setProfiles([...profiles, res])
-  //     // })
-  //     // .catch(err => {
-  //     //   console.error(err.message)
-  //     // })
-  //   }
-
   function creationHandler(e) {
     e.preventDefault()
     const newProfile = {
@@ -296,6 +256,12 @@ function SignUp() {
     createProfile(newProfile)
       .then((res) => {
         console.log('front end ', res)
+        dispatcher(
+          activeUser({
+            user: state.userInput,
+            userId: profiles.length + 1,
+          })
+        )
         setProfiles([...profiles, res])
         navigate('/home')
       })
@@ -314,11 +280,6 @@ function SignUp() {
     <main className="signup-wrapper">
       <h1>Create your account</h1>
       <SignUpCard>
-        <div className="signup-icons-wrapper">
-          <div className="signup-icon"></div>
-          <div className="signup-icon"></div>
-          <div className="signup-icon"></div>
-        </div>
         <form className="signup-form" onSubmit={creationHandler}>
           <SignUpInput
             type="text"
@@ -343,16 +304,12 @@ function SignUp() {
             onBlur={passHandler}
           />
           {state.passInvalidFormat && passMsg}
-          <button className="signup-create-btn" type="submit" onClick={creationHandler}>
-            Create account
-          </button>
           {state.userUnavailable === false &&
           state.emailUnavailable === false &&
           state.passInvalidFormat === false
             ? submitbtn
             : ''}
         </form>
-        
       </SignUpCard>
     </main>
   )

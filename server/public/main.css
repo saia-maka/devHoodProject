@@ -227,7 +227,7 @@
 .signup-card-wrapper {
   width: 90%;
   height: 70%;
-  background-color: aquamarine;
+  background-color: mediumspringgreen;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -272,7 +272,7 @@
 }
 
 .signup-create-btn {
-  width: 40%;
+  width: 50%;
   height: 1.8em;
   font-size: 1.3em;
   font-family: 'Roboto Condensed', sans-serif;
@@ -325,12 +325,23 @@
 
 .home-postbox-input {
   width: 99%;
-  height: 60%;
+  height: 40%;
   font-size: 1.5em;
   resize: none;
   font-family: 'Indie Flower', cursive;
   border-radius: 0.1em;
   border: 1pt solid black;
+}
+
+.home-postbox-select {
+  width: 60%;
+  height: 20%;
+  display: flex;
+  align-self: flex-start;
+  font-size: 1.4em;
+  font-family: 'Indie Flower', cursive;
+  border: 1pt solid black;
+
 }
 
 .home-postbox-btn {
@@ -397,7 +408,7 @@
   width: 90%;
   height: auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
   justify-content: flex-start;
 }
@@ -486,6 +497,78 @@ margin:0.1em;
 /* home post responsive styling */
 
 /* home post styling */
+
+
+
+/* home comment list styling */
+
+.comments-wrapper {
+  width: 90%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* home comment list responsive styling */
+@media (min-width: 668px) and (max-width: 1000px) {
+  .comments-wrapper {
+    width: 80%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .comments-wrapper {
+    width: 60%;
+  }
+}
+/* home comment list responsive styling */
+
+/* home comment list styling */
+
+
+
+/* home  */
+.comment-wrapper {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 4em;
+  border: 1px solid black;
+  box-shadow: 2px 4px 3px rgba(0, 0, 0, 0.8);
+}
+
+.comment-owner {
+  font-family: 'Shadows Into Light', cursive;
+  display: flex;
+  align-self: flex-start;
+  width: 100%;
+  font-size: 1.1em;
+  text-align: center;
+  margin: 0.2em;
+}
+
+.comment-title {
+  font-family: 'Shadows Into Light', cursive;
+  width: 100%;
+  font-size: 1.4em;
+  text-align: center;
+  margin: 0.2em;
+}
+
+
+
+/* home  */
+
+
+
+
+
+
 
 
 /* home styling */

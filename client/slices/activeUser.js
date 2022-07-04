@@ -1,15 +1,19 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 
-// const userState = {
-//   activeUser: '',
-// }
+const userState = {
+  user: '',
+  user_id: null,
+}
 
 const activeSlice = createSlice({
   name: 'activeUser',
-  initialState: [],
+  initialState: userState,
   reducers: {
     activeUser: (state, action) => {
-      return [action.payload.user]
+      return {
+        user: action.payload.user,
+        user_id: action.payload.userId,
+      }
     },
   },
   extraReducers: {},

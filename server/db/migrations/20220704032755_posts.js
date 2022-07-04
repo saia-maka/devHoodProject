@@ -4,6 +4,7 @@ exports.up = function (knex) {
     table.integer('post_id')
     table.string('post_owner')
     table.string('post')
+    table.string('type')
   })
 }
 

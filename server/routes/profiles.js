@@ -32,7 +32,7 @@ router.post('/create', async (req, res) => {
   const profile = req.body
   try {
     console.log(profile, ' this is data')
-    const data = await db.addProfile(profile)
+    const data = await db.addNewProfile(profile)
     profile.id = data
     res.json(data)
   } catch (err) {
