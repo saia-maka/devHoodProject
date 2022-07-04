@@ -1,0 +1,491 @@
+/* signin styling */
+
+.signin-wrapper {
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.signin-form {
+  width: 80%;
+  height: 70%;
+  /* border: 1pt solid black; editing */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.signin-title {
+  font-size: 3em;
+  font-family: 'Roboto Condensed', sans-serif;
+  margin: 0.5em;
+  width: 100%;
+  font-weight: bold;
+  text-align: center;
+}
+
+.signin-hr {
+  width: 100%;
+}
+
+.signin-label {
+  /* border: 1pt solid black; editing */
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0.4em;
+}
+
+.signin-input {
+  width: 100%;
+  height: 1.5em;
+  font-size: 1.5em;
+  font-family: 'Abel', sans-serif;
+  border: 1px solid black;
+  text-align: center;
+  margin: 0.5em;
+  border-radius: 0.4em;
+}
+
+.errMsg {
+  font-family: 'Abel', sans-serif;
+  color: red;
+  margin: 0;
+}
+
+.signin-btn {
+  width: 40%;
+  height: 1.8em;
+  font-size: 1.3em;
+  font-family: 'Roboto Condensed', sans-serif;
+  border: 1pt solid black;
+  border-radius: 0;
+  margin: 0.5em 0 1em 0;
+  background-color: white;
+}
+
+/* reponsive styling */
+
+@media (min-width: 668px) and (max-width: 1000px) {
+  .signin-title {
+    font-size: 4.2em;
+    width: 100%;
+    margin: 0.5em;
+  }
+
+  .signup-hr {
+    margin: 0.5em;
+  }
+
+  .signin-input {
+    height: 2em;
+    font-size: 2em;
+    width: 80%;
+  }
+
+  .signin-btn {
+    width: 40%;
+    height: 1.8em;
+    font-size: 2.2em;
+  }
+}
+
+@media (min-width: 1000px) {
+  .signin-title {
+    font-size: 4em;
+    /* font-weight: lighter; */
+  }
+
+  .signin-hr {
+    width: 70%;
+  }
+
+  .signin-input {
+    width: 45%;
+  }
+
+  .signin-btn {
+    width: 20%;
+  }
+}
+
+/* reponsive styling */
+
+
+/* signupAd styling */
+
+.signupAd-wrapper {
+  width: 100%;
+  height: 30%;
+  background-color: mediumspringgreen;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.signupAd-title {
+  width: 100%;
+  text-align: center;
+  font-size: 2.5em;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: lighter;
+  margin: 0;
+  color: white;
+}
+
+.signupAd-text {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-family: 'Abel', sans-serif;
+  color: white;
+  font-size: 1.5em;
+  margin: 0.5em;
+}
+
+.signupAd-link {
+  width: 40%;
+  height: 1.8em;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 1.3em;
+  margin: 0;
+  border: 1pt solid white;
+  background-color: transparent;
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+/* responsive styling */
+
+  @media (min-width: 668px) and (max-width: 1000px) {
+    .signupAd-title {
+      font-size: 3.3em;
+    }
+
+    .signupAd-text {
+      font-size: 1.8em;
+    }
+
+    .signupAd-link {
+      width: 30%;
+      height: 1.8em;
+      font-size: 2.2em;
+      border: 2pt solid white;
+    }
+  }
+
+  @media (min-width: 1000px) {
+    .signupAd-title {
+      font-size: 2.5em;
+    }
+
+    .signupAd-text {
+      font-size: 1.2em;
+    }
+
+    .signupAd-link {
+      width: 15%;
+    }
+  }
+
+/* responsive styling */
+
+
+/* signupAd styling */
+
+
+
+
+/* signin styling */
+
+
+
+
+/* signup styling */
+
+.signup-wrapper {
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-card-wrapper {
+  width: 90%;
+  height: 70%;
+  background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.signup-icons-wrapper {
+  width: 20%;
+  height: 10%;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0;
+}
+
+.signup-icon {
+  width: 10%;
+  height: 20%;
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+.signup-form {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.signup-input {
+  width: 90%;
+  height: 1.5em;
+  font-size: 1.5em;
+  text-align: center;
+  font-family: 'Abel', sans-serif;
+  border: 1px solid black;
+  margin: 0.5em;
+  border-radius: 0.4em;
+}
+
+.signup-create-btn {
+  width: 40%;
+  height: 1.8em;
+  font-size: 1.3em;
+  font-family: 'Roboto Condensed', sans-serif;
+  border: 1px solid black;
+  border-radius: 0;
+  margin: 0.5em 0 1em 0;
+  background-color: white;
+}
+
+/* signup styling */
+
+
+
+/* home styling */
+
+.home-wrapper {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.home-postbox-wrapper {
+  width: 100%;
+  height: 30vh;
+  background-color: mediumspringgreen; 
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.home-postbox-title {
+  font-family: 'Roboto Condensed', sans-serif;
+  margin: 0;
+}
+
+.home-postbox-form {
+  width: 90%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  /* border: 1px solid black; */
+}
+
+.home-postbox-input {
+  width: 99%;
+  height: 60%;
+  font-size: 1.5em;
+  resize: none;
+  font-family: 'Indie Flower', cursive;
+  border-radius: 0.1em;
+  border: 1pt solid black;
+}
+
+.home-postbox-btn {
+  width: 20%;
+  height: 20%;
+  display: flex;
+  align-self: flex-end;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 1.8em;
+  font-size: 1.3em;
+  font-family: 'Roboto Condensed', sans-serif;
+  border: 1pt solid black;
+  border-radius: 0;
+  background-color: white;
+}
+
+/* home responsive styling */
+@media (min-width: 668px) and (max-width: 1000px) {
+  .home-postbox-wrapper {
+    height: 25vh;
+  }
+
+  .home-postbox-title {
+    font-size: 2.5em;
+  }
+
+  .home-postbox-input {
+    font-size: 2em;
+  }
+
+  .home-postbox-btn {
+    width: 40%;
+    height: 1.6em;
+    font-size: 2.2em;
+  }
+}
+
+@media (min-width: 1000px) {
+  .home-postbox-wrapper {
+    width: 80%;
+    height: 35vh;
+  }
+
+  .home-postbox-title {
+    font-size: 3em;
+  }
+
+.home-postbox-form {
+  /* border: 1px solid black; */
+  width: 60%;
+}
+
+.home-postbox-btn {
+  width: 30%;
+}
+}
+/* home responsive styling */
+
+
+/* home postlist styling */
+.home-postlist-wrapper {
+  width: 90%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* home postlist responsive styling */
+
+@media (min-width: 668px) and (max-width: 1000px) {
+  .home-postlist-wrapper {
+    width: 80%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .home-postlist-wrapper {
+    width: 60%;
+  }
+}
+/* home postlist responsive styling */
+
+/* home postlist styling */
+
+
+
+/* home post styling */
+.post-wrapper {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 4em;
+  border: 1px solid black;
+  box-shadow: 2px 4px 3px rgba(0, 0, 0, 0.8);
+}
+
+.post-title {
+  font-family: 'Shadows Into Light', cursive;
+  width: 100%;
+  font-size: 1.6em;
+  text-align: center;
+  margin: 0.2em;
+
+}
+
+.post-author {
+font-family: 'Shadows Into Light', cursive;
+font-size: 1.4em;
+font-weight: lighter;
+margin:0.1em;
+}
+
+.post-type {
+  font-family: 'Shadows Into Light', cursive;
+  margin: 0;
+}
+
+.post-comments-link {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 1em;
+  margin: 0.4em;
+  text-decoration: underline;
+}
+
+/* home post responsive styling */
+@media (min-width: 668px) and (max-width: 1000px) {
+  .post-title {
+    font-size: 2em;
+  }
+
+  .post-author {
+    font-size: 1.8em;
+  }
+
+  .post-type {
+    font-size: 1.6em;
+  }
+
+  .post-comments-link {
+    font-size: 1.6em;
+  }
+
+}
+
+
+/* home post responsive styling */
+
+/* home post styling */
+
+
+/* home styling */

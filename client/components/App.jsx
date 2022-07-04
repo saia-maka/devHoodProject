@@ -1,26 +1,21 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
+import { Routes, Route } from 'react-router-dom'
 
-import { fetchFruits, selectFruits } from '../slices/fruits'
+// component imports:
+import SignIn from './sign-in/SignIn'
+import SignUp from './sign-up/SignUp'
+import Home from './home/Home'
 
 function App() {
-  const fruits = useSelector(selectFruits)
-  const dispatch = useDispatch()
-
-  useEffect(async () => {
-    await dispatch(fetchFruits())
-  }, [])
-
   return (
     <>
-      <div className="app">
-        <h1>Fullstack Boilerplate - with Fruits!</h1>
-        <ul>
-          {fruits.map((fruit) => (
-            <li key={fruit}>{fruit}</li>
-          ))}
-        </ul>
-      </div>
+      {/* <h1>Lets go DevHood</h1> */}
+      <Routes>
+        <Route path="/" element={<SignIn />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/signup" element={<SignUp />} />
+      </Routes>
+      
     </>
   )
 }
