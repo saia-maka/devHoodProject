@@ -9,7 +9,7 @@ import Comment from './Comment'
 function CommentList() {
   const allcomments = useSelector(allComments)
   const activepost = useSelector(selectActivePost)
-  const [post, setPost] = useState(activepost)
+  const [post, setPost] = useState('')
   const dispatch = useDispatch()
   const { id } = useParams()
 
@@ -28,7 +28,8 @@ function CommentList() {
   return (
     <>
       <section className="comments-wrapper">
-        <h2 className="comment-title">..POST QUESTION..</h2>
+        {/* <h2 className="comment-title">..POST QUESTION..</h2> */}
+        <h2 className="comment-title">{post}</h2>
                 {activeComments.map((comment) => {
           return (
             <Comment

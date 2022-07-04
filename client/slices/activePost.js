@@ -6,16 +6,16 @@ import { createSlice } from "@reduxjs/toolkit";
 // }
 
 const activePostSlice = createSlice({
-  name: 'activepost',
-  initialState: [],
+  name: 'activePost',
+  initialState: '',
   reducers: {
     activePost: (state, action) => {
-      return [...state, action.payload.post]
+      return `${action.payload.post}`
     },
   },
   extraReducers: {},
 })
 
-export const selectActivePost = (state) => state.activepost
+export const selectActivePost = (state) => state.activePost
 export const { activePost } = activePostSlice.actions
 export default activePostSlice.reducer

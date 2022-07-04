@@ -1,18 +1,21 @@
 import React from 'react'
 import { useNavigate} from 'react-router-dom'
-import { useDispatch} from 'react-redux'
-import {activePost} from '../../slices/activePost'
+import { useDispatch, useSelector} from 'react-redux'
+import {activePost, selectActivePost} from '../../slices/activePost'
 
 function Post(props) {
   const navigate = useNavigate()
-  // const currentPost = useSelector(selectActivePost)
+  const currentPost = useSelector(selectActivePost)
   const dispatch = useDispatch()
 
   function postLinkHandler() {
     dispatch(activePost({
       post: props.title
     }))
-    navigate(`/comments/${props.id}`)
+      console.log(props.title, 'title')
+      setTimeout(()=> {
+        navigate(`/comments/${props.id}`)
+      }, 500)
   }
 
   return (
