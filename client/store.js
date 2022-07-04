@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import fruits from './slices/fruits'
+import activeUser from './slices/activeUser'
 
 const store = configureStore({
   reducer: {
-    fruits,
+    activeUser,
   },
 })
 

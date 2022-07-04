@@ -9,22 +9,6 @@ export function fetchProfiles () {
     })
 }
 
-// export function createProfile(profile) {
-//   return request.post('/creating')
-//   .send({
-//     username: profile.name,
-//     email: profile.email,
-//     password: profile.password
-//   })
-//   .then(res => {
-//     console.log('api :', res.req._data)
-//     return res.req._data
-//   })
-//   .catch((err) => {
-//     console.error(err)
-//   })
-// }
-
 export function createProfile(profile) {
   return request
   .post('/profiles/create')

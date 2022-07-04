@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 
 // function imports:
 import { fetchProfiles } from '../../apis/api'
+import { activeUser } from '../../slices/activeUser'
 
 // component imports:
 import SignInInput from './SignInInput'
@@ -10,6 +12,7 @@ import SignInBtn from './SignInBtn'
 import SignUpAd from './SignUpAd'
 
 function SignIn() {
+  const dispatch = useDispatch()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [isErr, setIsErr] = useState('')
@@ -38,6 +41,11 @@ function SignIn() {
     try {
       if (user) {
         console.log(user, ' success')
+        dispatch(
+          activeUser({
+            user: username,
+          })
+        )
         navigate('/home')
       } else {
         setIsErr(true)
@@ -51,12 +59,12 @@ function SignIn() {
 
   useEffect(() => {
     fetchProfiles()
-    .then((res)=>{
-      setProfiles(res)
-    })
-    .catch((err) => {
-      console.error(err.message)
-    })
+      .then((res) => {
+        setProfiles(res)
+      })
+      .catch((err) => {
+        console.error(err.message)
+      })
   }, [])
 
   return (
