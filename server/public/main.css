@@ -503,12 +503,25 @@ margin:0.1em;
 /* home comment list styling */
 
 .comments-wrapper {
-  width: 90%;
+  width: 100%;
   height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  background-color: azure;
+}
+
+.comment-post-title {
+  font-size: 1.5em;
+  width: 95%;
+  margin: 1.5em;
+  padding: 0.5em 0 0.5em 0;
+  background-color: mediumspringgreen;
+  font-family: 'Shadows Into Light', cursive;
+  width: 100%;
+  font-size: 1.8em;
+  text-align: center;
 }
 
 /* home comment list responsive styling */
@@ -565,7 +578,45 @@ margin:0.1em;
 /* home  */
 
 
+/* add comments styling */
 
+.comments-box-wrapper {
+  width: 90%;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  background-color: beige;
+}
+
+.comment-postbox-input {
+  width: 99%;
+  height: 40%;
+  font-size: 1.5em;
+  resize: none;
+  font-family: 'Indie Flower', cursive;
+  border-radius: 0.1em;
+  border: 1pt solid black;
+}
+
+.comment-postbox-btn {
+  width: 20%;
+  height: 20%;
+  display: flex;
+  align-self: flex-end;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 1.8em;
+  font-size: 1.3em;
+  font-family: 'Roboto Condensed', sans-serif;
+  border: 1pt solid black;
+  border-radius: 0;
+  background-color: white;
+}
+
+/* add comments styling */
 
 
 

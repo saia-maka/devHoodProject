@@ -15,4 +15,16 @@ router.get('/all', (req,res) => {
   })
 })
 
+router.post('/add', (req,res) => {
+  const newComment = req.body
+  return db.addNewComment(newComment)
+    .then((response) => {
+      res.json(response)
+    })
+    .catch((err) => {
+      console.error(err.message)
+      res.status(500).json({ message: 'Somthing went wrong' })  
+    })
+})
+
 module.exports = router

@@ -5,22 +5,24 @@ import { allComments, fetchAllComments } from '../../slices/comments'
 import {selectActivePost} from '../../slices/activePost'
 
 import Comment from './Comment'
+import AddComment from './AddComment'
 
 function CommentList() {
   const allcomments = useSelector(allComments)
   const activepost = useSelector(selectActivePost)
   const [post, setPost] = useState('')
+  const [allPosts, setAllPosts] = useState([])
   const dispatch = useDispatch()
   const { id } = useParams()
 
   useEffect(() => {
     setPost(activepost)
+    setAllPosts(allComments)
     dispatch(fetchAllComments())
   }, [])
 
   console.log(activepost, ' this is active post!!!!!!!!!')
-  console.log(post, ' this is active post!!!!!!!!!')
-  console.log('commentlist :', id)
+ console.log(allPosts, 'allcomments')
 
 
   const activeComments = allcomments.filter(comment => comment.comment_id == id)
@@ -28,8 +30,7 @@ function CommentList() {
   return (
     <>
       <section className="comments-wrapper">
-        {/* <h2 className="comment-title">..POST QUESTION..</h2> */}
-        <h2 className="comment-title">{post}</h2>
+        <h2 className="comment-post-title">{post}</h2>
                 {activeComments.map((comment) => {
           return (
             <Comment
@@ -39,6 +40,7 @@ function CommentList() {
             />
           )
         })}
+        <AddComment commentId={id} />
       </section>
     </>
   )
