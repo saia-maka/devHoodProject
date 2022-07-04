@@ -10,7 +10,7 @@ import PostList from './PostList'
 
 function Home() {
   const activeUser = useSelector(active)
-  console.log('current active user is :', activeUser)
+  // console.log('current active user is :', activeUser)
   return (
     <section className="home-wrapper">
       <AddPost user={activeUser.user} userId={activeUser.user_id} />
@@ -22,18 +22,3 @@ function Home() {
 
 export default Home
 
-{
-  /* <section className="home-postbox-wrapper">
-<h2 className="home-postbox-title">{`Welcome, ${activeUser[0]}!`}</h2>
-<form className="home-postbox-form">
-  <textarea
-    className="home-postbox-input"
-    type="textarea"
-    placeholder="Ask somebody?"
-  />
-  <button className="home-postbox-btn" type="submit">
-    Post
-  </button>
-</form>
-</section> */
-}

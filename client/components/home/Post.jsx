@@ -1,10 +1,17 @@
 import React from 'react'
 import { useNavigate} from 'react-router-dom'
+import { useDispatch} from 'react-redux'
+import {activePost} from '../../slices/activePost'
 
 function Post(props) {
   const navigate = useNavigate()
+  // const currentPost = useSelector(selectActivePost)
+  const dispatch = useDispatch()
 
   function postLinkHandler() {
+    dispatch(activePost({
+      post: props.title
+    }))
     navigate(`/comments/${props.id}`)
   }
 

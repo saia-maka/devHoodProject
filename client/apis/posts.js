@@ -5,7 +5,7 @@ const url = '/posts'
 export async function getAllPosts() {
   const allPosts = await request.get(`${url}/all`)
   try {
-    console.log('API: ', allPosts.body)
+    // console.log('API: ', allPosts.body)
     return allPosts.body
   } catch (err) {
     console.error(err.message)
