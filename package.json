@@ -20,6 +20,9 @@
     "webpack": "webpack --config ./client/webpack.config.js",
     "knex": "knex --knexfile ./server/db/knexfile.js"
   },
+  "engines": {
+    "node": "16.x"
+},
   "babel": {
     "presets": [
       "@babel/preset-env",
